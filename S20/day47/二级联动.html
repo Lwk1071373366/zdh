@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级联动</title>
+</head>
+<body>
+请选择身份：<select name="" id="province"></select>
+请选择城市：<select name="" id="city"></select>
+<!--<script src="jquery-3.4.1.js"></script>-->
+<script>
+    var data = {"河北省": ["廊坊", "邯郸"], "北京": ["朝阳区", "海淀区"], "山东": ["威海市", "烟台市"]};
+    //1.3找到省份的select标签
+    var proSel = document.getElementById('province');
+    //1.4找到城市的select标签
+    var citySel = document.getElementById('city');
+    //1.将省份数据添加到省份的下拉框中
+    //1.1 循环数据，获取所有的键，因为键是省份
+    for (var i in data){
+        //1.2创建option标签，将数据添加到option标签内部
+        var optionEle = document.createElement('option');
+        optionEle.innerText=i;
+        //将option标签放到省份的select标签中
+        proSel.appendChild(optionEle);
+    }
+        //2.找到用户选择了哪个省份
+        proSel.onclick = function () {
+        citySel.innerHTML='';
+        var proVal = this.value;//河北省
+        var cityList = data[proVal];//["廊坊", "邯郸"]
+        for (var c in cityList){
+            var cityName= cityList[c]//'廊坊'
+            var optionEle1 = document.createElement('option');
+                optionEle1.innerText=cityName;
+                //将option标签放到省份的select标签中
+                citySel.appendChild(optionEle1);
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script>
+        var intervalid;
+        function f() {
+            var timestr =(new Date()).toLocaleString();
+            var inputEle = document.getElementById('i1');
+            inputEle.value=timestr;
+        }
+        function start() {
+            f();
+            if (intervalid === undefined){
+                intervalid=setInterval(f,1000)
+            }
+        }
+        function end() {
+            clearInterval(intervalid);
+            intervalid=undefined;
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="i1">
+<input type="button" value="开始" id="start" onclick="start();">
+<input type="button" value="结束" id="end" onclick="end();">
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <h1>查看书籍</h1>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+           <div>
+                <a href="{% url 'add_book' %}" class="btn btn-primary">添加书籍</a>
+           </div>
+            <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>书籍名称</th>
+                    <th>价格</th>
+                    <th>出版日期</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                 {% for all_book in all_books %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ all_book.name }}</td>
+                        <td>{{ all_book.price }}</td>
+                        <td>{{ all_book.date|date:'Y-m-d' }}</td>
+                        <td>{{ all_book.publisher }}</td>
+                        <td>
+                            <a href="{% url 'edit_book' all_book.pk %}" class="btn btn-warning">编辑</a>
+                            <a href="{% url 'del_book' all_book.pk %}" class="btn btn-danger">删除</a>
+                        </td>
+                    </tr>
+                 {% endfor %}
+
+            </tbody>
+        </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+<script src="{% static 'jquery-3.4.1.js' %}"></script>
+<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+<script>
+
+</script>
+</body>
+</html>

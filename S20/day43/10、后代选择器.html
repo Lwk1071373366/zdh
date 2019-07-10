@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*!*.c1 a{*!       后代选择器*/
+            /*color: red;*/
+        /*}*/
+        /*.c2>a{               儿子选择器*/
+            /*color: #122e67;*/
+        /*}*/
+        /*#d1+p{*/
+            /*color: #db192b;     毗邻选择器 结果是 紧挨着div标签下的第一个p标签变色*/
+        /*}*/
+        /*#d1~p{*/
+            /*color: green;         弟弟选择器 结果是 div标签下的所有同一级的p标签变色 */
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="c1">
+    <div>
+        <a href="">百度</a>
+    </div>
+</div>
+<div class="c2">
+    <a href="">儿子选择器</a>
+    <div>
+        <a href="">小米</a>
+    </div>
+</div>
+<p>
+    我是 p3
+</p>
+<div id="d1">
+    c3的div选择器
+</div>
+<p>
+    我是 p1
+</p>
+<p>
+    我是 p2
+</p>
+</body>
+</html>

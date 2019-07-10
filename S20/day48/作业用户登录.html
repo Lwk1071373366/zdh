@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<div >
+    用户名:<input type="text" name="" id="inp-name">
+</div>
+<div >
+    密码:<input type="password" name="" id="inp-pwd">
+</div>
+<div id="d1">
+    <button>提交</button>
+</div>
+<script src="jquery-3.4.1.js"></script>
+<script>
+$('#d1').click(function () {
+    var username = $('#inp-name').val();
+    var password = $('#inp-pwd').val();
+
+    if (username.length ===0){
+    $('#inp-name').text('用户名不能为空');
+    }
+    if (password.length === 0){
+        $('#inp-pwd').text('密码不能为空');
+    };
+    });
+</script>
+</body>
+</html>

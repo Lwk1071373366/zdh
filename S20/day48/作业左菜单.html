@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+    <style>
+        .title{
+            background-color: #2e82ff;
+            height: 40px;
+            width: 200px;
+            line-height: 40px;
+        }
+        .content div{
+            height: 30px;
+            width: 200px;
+            font-size: 14px;
+        }
+        .hide{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="menu1">
+    <div class="title">菜单一</div>
+    <div class="content hide" >
+        <div>红烧肉</div>
+        <div>水煮鱼</div>
+        <div>酸菜鱼</div>
+    </div>
+</div>
+<div class="menu2">
+    <div class="title">菜单二</div>
+    <div class="content hide">
+        <div>油焖大虾</div>
+        <div>糖醋排骨</div>
+        <div>可乐鸡翅</div>
+    </div>
+</div>
+<div class="menu3">
+    <div class="title">菜单三</div>
+    <div class="content hide">
+        <div>野鸡炖蘑菇</div>
+        <div>麻辣小龙虾</div>
+        <div>铁锅炖大鹅</div>
+    </div>
+</div>
+<script src="jquery-3.4.1.js"></script>
+<script>
+$('.title').on('click',function () {
+    $(this).next().toggleClass('hide').parent().siblings().children('.content').addClass('hide');
+})
+</script>
+</body>
+</html>

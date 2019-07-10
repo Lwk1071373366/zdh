@@ -1,0 +1,1 @@
+%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\Python工具\2X\;C:\Users\Administrator\AppData\Local\Programs\Python\Python36;D:\mysql\mysql-5.6.43-winx64\bin;

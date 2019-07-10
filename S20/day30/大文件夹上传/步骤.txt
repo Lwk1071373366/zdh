@@ -1,0 +1,7 @@
+1.修改hosts文件
+win + r 运行:
+drivers
+找到ets下的hosts文件,在最后一行加上:
+0.0.0.0 account.jetbrains.com
+
+2.打开pycharm,在注册页面输入注册码.

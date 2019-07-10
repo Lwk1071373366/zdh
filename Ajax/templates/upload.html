@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#<form action="upload.html" method="post" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    用户名:<input type="text" name="username">#}
+{#    密码:<input type="password" name="password">#}
+{#    <input type="file" name="touxiang">#}
+{#    <input type="submit">#}
+{#</form>#}
+<form>
+    <h1>ajax文件上传</h1>
+        {% csrf_token %}
+    用户名:<input type="text" name="username">
+    密码:<input type="password" name="password">
+    <input type="file" name="picture">
+    <input type="button" value="提交" id="btn">
+</form>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+{#<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js#}
+{#"></script>#}
+<script>
+    $('#btn').click(function () {
+        var formdate = new FormData();
+        var username = $('[name=username]').val();
+        var password = $('[name=password]').val();
+        var file_obj = $('[name=picture]')[0].files[0];
+        var csrf_date = $('[name=csrfmiddlewaretoken]').val();
+        formdate.append('username',username);
+        formdate.append('password',password);
+        formdate.append('picture',file_obj);
+        formdate.append('csrfmiddlewaretoken',csrf_date);
+        $.ajax({
+            url:'{% url "upload" %}',
+            type:'post',
+            data:formdate,
+            processData:false,     //不做数据预处理
+            contentType:false,    //不设置数据类型
+            success:function (res) {
+                console.log(res)
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

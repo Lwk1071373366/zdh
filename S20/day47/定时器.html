@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+</head>
+<body>
+<input type="text" id="timer">
+<button id="btn-start">开始</button>
+<button id="btn-end">结束</button>
+<!--<script src="jquery-3.4.1.js"></script>-->
+<script>
+    //6.创建一个全部变量，接收定时器的id值，以便在其他函数里清除定时器
+    var flag;
+    //1.获取startbutton按钮
+    var start = document.getElementById('btn-start');
+    //为了点击立即获取到时间，封装了函数，瞬间先执行函数，然后在定时器执行函数
+    function getTime(){
+            //3.创建时间对象，获取本地时间
+        var d = new Date();
+        var timeStr = d.toLocaleString();
+        //4.放到input标签里
+            //4.1 找到input标签
+        var  inpEle = document.getElementById('timer');
+            //4.2 将时间放到input标签里面
+        inpEle.value = timeStr
+    }
+    //2.给start绑定点击事件
+    start.onclick=function () {
+        getTime();
+        //5.创建定时器，每秒更新一次时间
+        if (flag === undefined){
+            //8.通过flag的值来控制只能开一个定时器
+            flag=setInterval(getTime,1000)
+        }
+    };
+    //7.点击结束按钮，清除计时器
+    var end = document.getElementById('btn-end');
+    end.onclick=function () {
+        clearInterval(flag);
+        flag = undefined;//重新初始化flag标志的数值，不然flag的值一直等于上一个定时器的数字
+    };
+
+</script>
+</body>
+</html>

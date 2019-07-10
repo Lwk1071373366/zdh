@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .c1{
+            background-color: #FFFFFF;
+            padding: 1px;
+            border-width: 2px;
+            font-size: 16px;
+        }
+        .c1 .del{
+            font-size: 12px;
+        }
+        .shadow{
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        .bord{
+            position: fixed;
+            z-index: 2;
+            width: 400px;
+            height: 300px;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+            background-color: #FFFFFF;
+        }
+        .hide{
+            display: none;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<button id="add">新增</button>
+<table border="2" class="c1" >
+    <thead>
+        <tr>
+            <th>选择</th>
+            <th>姓名</th>
+            <th>既能</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>曹操</td>
+            <td>吸血</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox"></td>
+            <td>关羽</td>
+            <td>冲锋</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+        <tr>
+
+            <td><input type="checkbox"></td>
+            <td>后羿</td>
+            <td>大鸟</td>
+            <td><button class="del">删除</button></td>
+        </tr>
+
+    </tbody>
+</table>
+<div class="shadow hide">
+
+</div>
+<div class="bord hide">
+    <div><input type="text" id="username"><span class="error"></span></div>
+    <div><input type="text" id="skill"><span class="error"></span></div>
+    <div>
+        <button id="cancel">取消</button>
+        <button id="confirm">确定</button>
+    </div>
+</div>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    //1.给新增按钮绑定点击事件,将模态对话框显示出来
+    $('#add') .click(function () {
+        $('.shadow,.bord').removeClass('hide');
+    });
+    //2.关闭模态对话框，取消按钮和确定按钮都要绑定点击事件，点击事件隐藏对话框
+    $('#cancel').click(function () {
+        $('.shadow,.bord').addClass('hide');
+    });
+    //3.点击确定，添加一条数据
+    $('#confirm').click(function () {
+        //3.1获取用户输入的数据
+        var username= $('#username').val();
+        var skill= $('#skill').val();
+        //3.2获取用户输入的内容，并校验。
+        if (username.trim().length === 0){
+            $('#username').next().text('用户名不能为空');
+            return;
+        }else {
+            $('#username').next().text('');
+        }
+        if (skill.trim().length === 0){
+            $('#skill').next().text('技能不能为空');
+            return;
+        }else {
+            $('#skill').next().text('');
+        }
+        //3.3 组合一行表格，并添加到table标签中
+        var addStr ='<tr><td><input type=\"checkbox\"></td><td>'+username+
+            '</td><td>'+skill+'</td><td><button class=\"del\">删除</button></td></tr>'
+            $('tbody').append(addStr);
+        //3.4 隐藏对话框
+        $('.shadow,.bord').addClass('hide');
+        //3.5 清空用户输入内容
+        $('#username').val('');
+        $('#skill').val('')
+    });
+
+    //2.删除
+       // 1. 绑定点击事件，删除对应行
+    // $('.del').click(function () {
+    //     //1.1  $(this)表示当前被点击的按钮标签
+    //     $(this).parent().parent().remove();
+    // });
+    //新增的删除按钮没有被绑定上点击事件，因为绑定点击事件的动作已经过去了
+    //给新增的删除按钮让它也具备点击事件，需要用到事件委托
+    $('tbody').on('click','.del',function () {
+        $(this).parent().parent().remove();
+    })
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

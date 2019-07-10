@@ -1,0 +1,27 @@
+{#原版#}
+{#<div class="static-menu">#}
+{#    #}
+{#    {% for item in menu_list %}#}
+{#        <a href="{{ item.url }}" class="{{ item.class }}">#}
+{#            <span class="icon-wrap"><i class="fa {{ item.icon }}"></i></span> {{ item.title }}</a>#}
+{##}
+{#    {% endfor %}#}
+{##}
+{#</div>#}
+
+<div class="multi-menu">
+    {% for item in menu_dict.values %}
+        <div class="item">
+            <div class="title">
+                <i class="{{ item.icon }}"></i>{{ item.title }}
+            </div>
+            {% for child in item.children %}
+                <div class="body{{ item.class }}">
+                <a href="{{ child.url }}" class="{{ child.class }}">{{ child.title }}</a>
+                </div>
+
+                {% endfor %}
+        </div>
+
+    {% endfor %}
+</div>

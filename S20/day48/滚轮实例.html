@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1{
+            height: 400px;
+            background-color: red;
+        }
+        .c2{
+            height: 400px;
+            background-color: #f76b1c;
+        }
+        .top{
+            position: fixed;
+            left: 40px;
+            bottom: 40px;
+            background-color: #333333;
+            height: 50px;
+            width: 50px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div>顶部位置</div>
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c1"></div>
+<div class="c2"></div>
+
+<span class="top hide">回到顶部</span>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    $(window).scroll(function () {
+        // console.log($(window).scrollTop())
+        if ($(window).scrollTop()>200) {
+            $('span').removeClass('hide');
+        }else {
+            $('span').addClass('hide')
+        }
+    });
+    $('span').click(function () {
+        $(window).scrollTop(0)
+    })
+</script>
+</body>
+</html>

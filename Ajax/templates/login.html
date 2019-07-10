@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="login.html">
+    用户名：<input type="text" name="username">
+    <input type="button" id="sub" value="提交">
+    {% csrf_token %}
+</form>
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+<script>
+    $('#sub').click(function () {
+        var username=$('#username').val();
+        var csrc_date=$('[name=csrfmiddlewaretoken]').val();
+        $.ajax({
+            url:"{% url 'index' %}",
+            type:'post',
+            data:{
+                username:username,
+                csrfmiddlewaretoken :csrc_date
+            },
+            success:function (response) {
+                alert(response)
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

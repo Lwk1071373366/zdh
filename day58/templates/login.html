@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <style>
+        .c1{
+            background-color: #1b6d85;
+            width: 100%;
+            height: 950px;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+        .c2{
+            margin-top: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="c1">
+<div class="container-fluid">
+<div class="row c2">
+    <div class="col-md-3 col-md-offset-4">
+        <div class="panel panel-primary">
+              <div class="panel-heading "><h1 class="col-md-offset-3">图书管理系统</h1></div>
+                  <div class="panel-body">
+                    <form action="{% url 'login' %}" method="post" >
+                        {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputUsername">用户名</label>
+                        <input type="username" class="form-control" id="exampleInputUsername" placeholder="Username" name="uname">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword">密码</label>
+                        <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" name="pwd">
+                      </div>
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> 记住密码
+                        </label>
+                      </div>
+                        <input type="button" class="btn btn-default" value="注册" id="btn">
+                        <button type="submit" class="btn btn-default pull-right">登录</button>
+                    </form>
+                  </div>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+{#<div class="c1 row container-fluid" >#}
+{#    <div class="c2">#}
+{#            <div class="container-fluid">#}
+{#            <div class="row">#}
+{#                <div class="col-md-3 col-md-offset-4">#}
+{#                    <div class="panel panel-primary">#}
+{#                          <div class="panel-heading"><h1 class="col-md-offset-3">图书管理系统</h1></div>#}
+{#                              <div class="panel-body">#}
+{#                                <form action="{% url 'login' %}" method="post">#}
+{#                                    {% csrf_token %}#}
+{#                                  <div class="form-group">#}
+{#                                    <label for="exampleInputUsername">用户名</label>#}
+{#                                    <input type="username1" class="form-control" id="exampleInputUsername" placeholder="Username1" name="uname1">#}
+{#                                  </div>#}
+{#                                  <div class="form-group">#}
+{#                                    <label for="exampleInputPassword">密码</label>#}
+{#                                    <input type="password1" class="form-control" id="exampleInputPassword" placeholder="Password1" name="pwd1">#}
+{#                                  </div>#}
+{#                                  <div class="checkbox">#}
+{#                                    <label>#}
+{#                                      <input type="checkbox"> 记住密码#}
+{#                                    </label>#}
+{#                                  </div>#}
+{#                                    <button type="submit" class="btn btn-default"><a href="{% url 'register' %}">注册</a></button>#}
+{#                                    <!-- Button trigger modal -->#}
+{##}
+{#                                        <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal">注册</button>#}
+{##}
+{#                                        <!-- Modal -->#}
+{#                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">#}
+{#                                          <div class="modal-dialog" role="document">#}
+{#                                            <div class="modal-content">#}
+{#                                              <div class="modal-header">#}
+{#                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>#}
+{#                                                <h4 class="modal-title" id="myModalLabel">用户注册</h4>#}
+{#                                              </div>#}
+{#                                                  <div class="modal-body">#}
+{#                                                    <div class="panel-body">#}
+{#                                                        <form action="{% url 'register' %}" method="post" class="modal-footer">#}
+{#                                                            {% csrf_token %}#}
+{#                                                          <div class="form-group">#}
+{#                                                            <label for="exampleInputUsername">用户名</label>#}
+{#                                                            <input type="username2" class="form-control" id="exampleInputUsername" placeholder="Username2" name="uname2">#}
+{#                                                          </div>#}
+{#                                                          <div class="form-group">#}
+{#                                                            <label for="exampleInputPassword">密码</label>#}
+{#                                                            <input type="password1" class="form-control" id="exampleInputPassword" placeholder="Password2" name="pwd2">#}
+{#                                                          </div>#}
+{#                                                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>#}
+{#                                                            <button type="button" class="btn btn-primary pull-right">保存</button>#}
+{#                                                            <button type="submit" class="btn btn-default pull-right">确认</button>#}
+{#                                                        </form>#}
+{#                                                      </div>#}
+{#                                                  </div>#}
+{#                                              <div class="modal-footer">#}
+{#                                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>#}
+{#                                                <button type="button" class="btn btn-primary">保存</button>#}
+{#                                              </div>#}
+{#                                            </div>#}
+{#                                          </div>#}
+{#                                        </div>#}
+
+
+{#                                    <button type="submit" class="btn btn-primary  pull-right">登录</button>#}
+{#                                </form>#}
+{#                              </div>#}
+{#                        </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+
+
+<script src="{% static 'jquery-3.4.1.js' %}"></script>
+<script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+<script>
+    $('#btn').click(function () {
+        var formdate = new FormData();
+        var username = $('[name=username]').val();
+        var password = $('[name=password]').val();
+        var csrf_date = $('[name=csrfmiddlewaretoken]').val();
+        formdate.append('username',username);
+        formdate.append('password',password);
+        formdate.append('csrfmiddlewaretoken',csrf_date);
+        $.ajax({
+            url:'{% url "register" %}',
+            type:'get',
+            data:formdate,
+            processData:false,     //不做数据预处理
+            contentType:false,    //不设置数据类型
+            success:function (res) {
+                alert(res)
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
